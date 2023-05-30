@@ -1,0 +1,23 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  width: 30%;
+}
+
+form > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+#email:valid {
+  border: 2px solid greenyellow;
+}
+
+#email:invalid {
+  border: 2px solid red;
+}
