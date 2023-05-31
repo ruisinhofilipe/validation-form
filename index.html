@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="app.js" defer></script>
     <link rel="stylesheet" href="styles.css" />
     <title>validation form</title>
   </head>
@@ -16,26 +17,44 @@
           id="email"
           placeholder="something@gmail.com"
           onblur="checkEmail(this)"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+          required
         />
       </div>
-      <div class="country">
-        <label for="country">Country:</label>
-        <input type="text" id="country" />
+      <div class="countries">
+        <label for="Country">Country:</label>
+        <select id="Country">
+          <option value="be">Belgium</option>
+          <option value="nl">Netherlands</option>
+          <option value="de">Germany</option>
+          <option value="lx">Luxembourg</option>
+        </select>
       </div>
       <div class="zip">
         <label for="zip">ZIP:</label>
-        <input type="text" id="zip" />
+        <input type="text" id="zip" onblur="checkZip(this)" />
       </div>
       <div class="pw">
         <label for="password">Password:</label>
-        <input type="password" id="password" />
+        <input
+          type="password"
+          id="password"
+          onblur="checkPassword()"
+          pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+          required
+        />
       </div>
       <div class="pwc">
-        <label for="password-confirmation">Password confirmation:</label>
-        <input type="password" id="password-confirmation" />
+        <label for="passwordConfirmation">Password confirmation:</label>
+        <input
+          type="password"
+          id="passwordConfirmation"
+          onblur="checkPassword()"
+          pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+          required
+        />
       </div>
-      <!-- <button type="submit"></button> -->
+      <button type="submit"></button>
     </form>
-    <script src="app.js" defer></script>
   </body>
 </html>

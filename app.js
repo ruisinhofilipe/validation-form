@@ -2,15 +2,30 @@ const email = document.getElementById("email");
 const country = document.getElementById("country");
 const zip = document.getElementById("zip");
 const pw = document.getElementById("password");
-const pwc = document.getElementById("password-confirmation");
+const pwc = document.getElementById("passwordConfirmation");
 
-let emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+let countriesRegex = {
+  be: /^\d{4}$/,
+  nl: /^\\d{4}\\s{0,1}[A-Za-z]{2}$/,
+  de: /^\\d{2}$/,
+  lx: /^\\d{4}$/,
+};
 
 function checkEmail(input) {
-  if (input.value.match(emailRegex)) {
-    console.log("valid");
-    input.classList.add(":valid");
+  if (input.checkValidity()) {
+    return true;
   } else {
-    console.log("not valid");
+    return false;
+  }
+}
+
+// Check ZIP acording to the country selected
+function checkZip(input) {
+  let countrySelected = document.getElementById("Country").value;
+  if (countriesRegex[countrySelected].test(input.value)) {
+    input.setCustomValidity("");
+  } else {
+    input.setCustomValidity("Invalid field.");
+    input.reportValidity();
   }
 }

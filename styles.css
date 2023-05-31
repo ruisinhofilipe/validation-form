@@ -14,10 +14,16 @@ form > div {
   gap: 20px;
 }
 
-#email:valid {
+#email:valid,
+#password:valid,
+#passwordConfirmation:valid,
+#zip:valid {
   border: 2px solid greenyellow;
 }
 
-#email:invalid {
+#email:invalid,
+#password:invalid,
+#passwordConfirmation:invalid,
+#zip:invalid {
   border: 2px solid red;
 }
